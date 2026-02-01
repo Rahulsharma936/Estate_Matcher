@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import config from '../config/config';
 
 const steps = [
     {
@@ -47,7 +48,7 @@ const AIMatcher = () => {
     const startMatching = async (finalAnswers) => {
         setIsMatching(true);
         try {
-            const res = await fetch('http://localhost:5000/api/properties/match', {
+            const res = await fetch(`${config.BASE_URL}/properties/match`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

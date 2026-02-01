@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import config from '../config/config';
 
 const Properties = () => {
     const [filter, setFilter] = useState('All');
@@ -9,7 +10,7 @@ const Properties = () => {
     useEffect(() => {
         const fetchProperties = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/properties');
+                const res = await fetch(`${config.BASE_URL}/properties`);
                 const data = await res.json();
                 setProperties(data);
                 setFilteredProps(data);
